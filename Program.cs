@@ -16,6 +16,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+builder.Services.AddScoped<PropietarioRepository>();
+builder.Services.AddScoped<InquilinoRepository>();
+
 app.UseAuthorization();
 
 app.MapStaticAssets();
