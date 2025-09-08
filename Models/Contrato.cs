@@ -1,0 +1,1 @@
+namespace Inmobiliaria.Web.Models { public class Contrato { public int Id {get;set;} public int InmuebleId {get;set;} public int InquilinoId {get;set;} public decimal Monto {get;set;} public DateOnly FechaInicio {get;set;} public DateOnly FechaFin {get;set;} public DateOnly? FinalizadoAnticipadoEn {get;set;} public decimal? Multa {get;set;} } }

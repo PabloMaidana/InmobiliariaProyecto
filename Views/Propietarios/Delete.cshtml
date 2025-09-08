@@ -1,0 +1,7 @@
+@model Inmobiliaria.Web.Models.Propietario
+<h2>Eliminar Propietario</h2>
+<p>¿Confirmás eliminar a <b>@Model.Apellido, @Model.Nombre</b>?</p>
+<form method="post">
+  <button type="submit">Eliminar</button>
+  <a asp-action="Index">Cancelar</a>
+</form>

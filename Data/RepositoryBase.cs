@@ -1,0 +1,1 @@
+namespace Inmobiliaria.Web.Data { public abstract class RepositoryBase { protected readonly Db Db; protected RepositoryBase(Db db)=>Db=db; } }

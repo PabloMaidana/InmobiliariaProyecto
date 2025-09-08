@@ -1,0 +1,12 @@
+@model Inmobiliaria.Web.Models.Propietario
+<h2>Nuevo Propietario</h2>
+<partial name="~/Views/Shared/_FormSummary.cshtml" />
+<form method="post">
+  <div><label>DNI</label><input asp-for="Dni" required /></div>
+  <div><label>Nombre</label><input asp-for="Nombre" required /></div>
+  <div><label>Apellido</label><input asp-for="Apellido" required /></div>
+  <div><label>Teléfono</label><input asp-for="Telefono" /></div>
+  <div><label>Email</label><input asp-for="Email" type="email" /></div>
+  <button type="submit">Guardar</button>
+  <a asp-action="Index">Volver</a>
+</form>

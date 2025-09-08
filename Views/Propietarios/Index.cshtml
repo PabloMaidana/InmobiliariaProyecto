@@ -1,0 +1,24 @@
+@model IEnumerable<Inmobiliaria.Web.Models.Propietario>
+<h2>Propietarios</h2>
+<form method="get" style="margin:10px 0">
+  <input type="text" name="q" value="@Context.Request.Query["q"]" placeholder="Buscar nombre o apellido" />
+  <button type="submit">Buscar</button>
+  @if (User.IsInRole("Admin")) { <a class="btn" asp-action="Create">Nuevo</a> }
+</form>
+<table class="table">
+  <thead><tr><th>DNI</th><th>Apellido, Nombre</th><th>Contacto</th><th></th></tr></thead>
+  <tbody>
+    @foreach(var p in Model){
+      <tr>
+        <td>@p.Dni</td>
+        <td>@p.Apellido, @p.Nombre</td>
+        <td>@p.Email / @p.Telefono</td>
+        <td>
+            <a asp-action="Details" asp-route-id="@p.Id">Ver</a> |
+            <a asp-action="Edit" asp-route-id="@p.Id">Editar</a>
+            @if (User.IsInRole("Admin")){ <text> | </text><a asp-action="Delete" asp-route-id="@p.Id">Eliminar</a> }
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

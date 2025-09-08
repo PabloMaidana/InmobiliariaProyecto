@@ -1,0 +1,20 @@
+@model Inmobiliaria.Web.Models.Contrato
+@{ var inmuebles = (IEnumerable<Inmobiliaria.Web.Models.Inmueble>)ViewBag.Inmuebles; var inquilinos = (IEnumerable<Inmobiliaria.Web.Models.Inquilino>)ViewBag.Inquilinos; }
+<h2>Nuevo Contrato</h2>
+<partial name="~/Views/Shared/_FormSummary.cshtml" />
+<form method="post">
+  <div><label>Inmueble</label>
+    <select asp-for="InmuebleId">
+      @foreach(var i in inmuebles){ <option value="@i.Id">@i.Direccion (ID @i.Id)</option> }
+    </select>
+  </div>
+  <div><label>Inquilino</label>
+    <select asp-for="InquilinoId">
+      @foreach(var q in inquilinos){ <option value="@q.Id">@q.Nombre (@q.Dni)</option> }
+    </select>
+  </div>
+  <div><label>Monto</label><input asp-for="Monto" type="number" step="0.01" required/></div>
+  <div><label>Inicio</label><input asp-for="FechaInicio" type="date" required/></div>
+  <div><label>Fin</label><input asp-for="FechaFin" type="date" required/></div>
+  <button type="submit">Guardar</button> <a asp-action="Index">Volver</a>
+</form>

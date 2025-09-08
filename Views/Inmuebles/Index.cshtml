@@ -1,0 +1,24 @@
+@model IEnumerable<Inmobiliaria.Web.Models.Inmueble>
+<h2>Inmuebles</h2>
+<p>
+  <a asp-action="Create">Nuevo</a> |
+  <a asp-action="Disponibles">Sólo disponibles</a> |
+  <a asp-action="BuscarLibres">Buscar libres por fechas</a>
+</p>
+<table class="table">
+  <thead><tr><th>ID</th><th>Dirección</th><th>Uso</th><th>Amb.</th><th>Precio</th><th>Disponible</th><th></th></tr></thead>
+  <tbody>
+    @foreach(var i in Model){
+      <tr>
+        <td>@i.Id</td><td>@i.Direccion</td><td>@i.Uso</td><td>@i.Ambientes</td><td>@i.Precio</td><td>@(i.Disponible? "Sí":"No")</td>
+        <td>
+          <a asp-action="Edit" asp-route-id="@i.Id">Editar</a> |
+          <form asp-action="Suspender" method="post" style="display:inline">
+            <input type="hidden" name="id" value="@i.Id"/><input type="hidden" name="disponible" value="@(i.Disponible? "false":"true")"/>
+            <button type="submit">@(i.Disponible? "Suspender":"Habilitar")</button>
+          </form>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
