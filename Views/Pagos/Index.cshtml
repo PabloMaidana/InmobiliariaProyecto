@@ -1,0 +1,32 @@
+@model IEnumerable<Inmobiliaria.Web.Models.Pago>
+@{ var contratoId = (int)ViewBag.ContratoId; }
+<h2>Pagos del contrato #@contratoId</h2>
+<table class="table">
+  <thead><tr><th>#</th><th>Fecha</th><th>Concepto</th><th>Importe</th><th>Estado</th><th></th></tr></thead>
+  <tbody>
+  @foreach(var p in Model){
+    <tr>
+      <td>@p.Numero</td><td>@p.Fecha</td><td>@p.Concepto</td><td>@p.Importe</td><td>@(p.Anulado ? "Anulado" : "OK")</td>
+      <td>
+        <form asp-action="EditarConcepto" method="post" style="display:inline">
+          <input type="hidden" name="id" value="@p.Id"/><input type="hidden" name="contratoId" value="@contratoId"/>
+          <input name="concepto" value="@p.Concepto" /><button type="submit">Guardar</button>
+        </form>
+        <form asp-action="Anular" method="post" style="display:inline">
+          <input type="hidden" name="id" value="@p.Id"/><input type="hidden" name="contratoId" value="@contratoId"/>
+          <button type="submit">Anular</button>
+        </form>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>
+
+<h3>Nuevo pago</h3>
+<form asp-action="Crear" method="post">
+  <input type="hidden" name="contratoId" value="@contratoId"/>
+  <div><label>Fecha</label><input name="fecha" type="date" required/></div>
+  <div><label>Concepto</label><input name="concepto" required/></div>
+  <div><label>Importe</label><input name="importe" type="number" step="0.01" required/></div>
+  <button type="submit">Guardar</button>
+</form>

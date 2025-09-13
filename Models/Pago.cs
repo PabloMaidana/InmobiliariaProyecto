@@ -1,0 +1,1 @@
+namespace Inmobiliaria.Web.Models { public class Pago { public int Id {get;set;} public int ContratoId {get;set;} public int Numero {get;set;} public DateOnly Fecha {get;set;} public string Concepto {get;set;} = ""; public decimal Importe {get;set;} public bool Anulado {get;set;} } }
