@@ -1,0 +1,28 @@
+@model Inmobiliaria.Web.Models.Usuario
+@{
+    ViewData["Title"] = "Eliminar usuario";
+}
+<h1 class="h1">Eliminar usuario</h1>
+<p class="subtle">¿Confirmás eliminar este usuario?</p>
+
+<div class="grid-2 mt-2">
+    <div>
+        <div><b>Nombre:</b> @Model.Nombre</div>
+        <div><b>Apellido:</b> @Model.Apellido</div>
+        <div><b>Email:</b> @Model.Email</div>
+        <div><b>Rol:</b> @Model.Rol</div>
+    </div>
+    <div>
+        <b>Avatar:</b><br />
+        @if (!string.IsNullOrWhiteSpace(Model.AvatarUrl))
+        {
+            <img src="@Model.AvatarUrl" style="width:80px;height:80px;border-radius:14px;object-fit:cover" />
+        }
+        else { <span class="subtle">—</span> }
+    </div>
+</div>
+
+<form method="post" class="mt-3">
+    <button class="btn btn-danger" type="submit">Eliminar</button>
+    <a class="btn" asp-action="Index">Cancelar</a>
+</form>

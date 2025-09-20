@@ -1,0 +1,8 @@
+@model IEnumerable<Inmobiliaria.Web.Models.TipoInmueble>
+<h2>Tipos de Inmueble</h2>
+<p><a asp-action="Create">Nuevo</a></p>
+<table class="table"><thead><tr><th>Nombre</th><th></th></tr></thead><tbody>
+@foreach(var t in Model){
+<tr><td>@t.Nombre</td><td><a asp-action="Edit" asp-route-id="@t.Id">Editar</a> | <a asp-action="Delete" asp-route-id="@t.Id">Eliminar</a></td></tr>
+}
+</tbody></table>

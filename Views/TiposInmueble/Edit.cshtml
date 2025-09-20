@@ -1,0 +1,7 @@
+@model Inmobiliaria.Web.Models.TipoInmueble
+<h2>Editar Tipo</h2>
+<form method="post">
+  <input type="hidden" asp-for="Id"/>
+  <div><label>Nombre</label><input asp-for="Nombre" required/></div>
+  <button type="submit">Guardar</button> <a asp-action="Index">Volver</a>
+</form>

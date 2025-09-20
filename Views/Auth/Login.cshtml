@@ -1,0 +1,18 @@
+@model string
+<h2>Ingresar</h2>
+
+<form method="post" class="auth-form">
+  <div class="row">
+    <label>Email</label>
+    <input name="email" type="email" placeholder="tu@correo.com" required />
+  </div>
+  <div class="row">
+    <label>Contraseña</label>
+    <input name="password" type="password" placeholder="••••••••" required />
+  </div>
+  <button class="btn btn-primary" type="submit">Entrar</button>
+</form>
+
+@if(!ViewData.ModelState.IsValid){
+  <p style="color:red">@(ViewData.ModelState[string.Empty]?.Errors.FirstOrDefault()?.ErrorMessage)</p>
+}

@@ -1,0 +1,35 @@
+@model Inmobiliaria.Web.Models.Usuario
+@{
+    ViewData["Title"] = "Editar usuario";
+}
+<h1 class="h1">Editar usuario</h1>
+<partial name="~/Views/Shared/_FormSummary.cshtml" />
+
+<form method="post" class="form">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="row">
+        <label>Nombre</label>
+        <input asp-for="Nombre" required />
+    </div>
+    <div class="row">
+        <label>Apellido</label>
+        <input asp-for="Apellido" required />
+    </div>
+    <div class="row full">
+        <label>Email</label>
+        <input asp-for="Email" type="email" required />
+    </div>
+    <div class="row">
+        <label>Rol</label>
+        <select asp-for="Rol">
+            <option value="Empleado" selected="@(Model.Rol=="Empleado")">Empleado</option>
+            <option value="Admin" selected="@(Model.Rol=="Admin")">Admin</option>
+        </select>
+    </div>
+
+    <div class="form-actions full">
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <a class="btn" asp-action="Index">Volver</a>
+    </div>
+</form>

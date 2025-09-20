@@ -1,0 +1,93 @@
+@model Inmobiliaria.Web.Models.Usuario
+@{
+    ViewData["Title"] = "Mi perfil";
+}
+<h1 class="h1">Mi perfil</h1>
+<p class="subtle">Actualizá tus datos. No podés cambiar tu rol.</p>
+
+<div class="grid-2">
+    <!-- Datos personales (sin rol) -->
+    <div class="card">
+        <div class="card-body">
+            <h3 style="margin-top:0">Datos</h3>
+            <form method="post" class="form">
+                <input type="hidden" asp-for="Id" />
+                <div class="row">
+                    <label>Nombre</label>
+                    <input asp-for="Nombre" required />
+                </div>
+                <div class="row">
+                    <label>Apellido</label>
+                    <input asp-for="Apellido" required />
+                </div>
+                <div class="row full">
+                    <label>Email</label>
+                    <input asp-for="Email" type="email" required />
+                </div>
+                <div class="row">
+                    <label>Rol</label>
+                    <input value="@Model.Rol" disabled />
+                </div>
+                <div class="form-actions full">
+                    <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Avatar -->
+    <div class="card">
+        <div class="card-body">
+            <h3 style="margin-top:0">Avatar</h3>
+            <div class="mb-2">
+                @if (!string.IsNullOrWhiteSpace(Model.AvatarUrl))
+                {
+                    <img src="@Model.AvatarUrl" alt="avatar" style="width:96px;height:96px;border-radius:16px;object-fit:cover" />
+                }
+                else
+                {
+                    <div class="subtle">No tenés avatar.</div>
+                }
+            </div>
+
+            <form asp-action="SubirAvatar" method="post" enctype="multipart/form-data" class="form">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <div class="row full">
+                    <label>Archivo</label>
+                    <input type="file" name="avatar" accept="image/*" />
+                </div>
+                <div class="form-actions full">
+                    <button class="btn btn-primary" type="submit">Subir / Reemplazar</button>
+                </div>
+            </form>
+
+            <form asp-action="EliminarAvatar" method="post" class="mt-2">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button class="btn" type="submit">Eliminar avatar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Cambio de contraseña -->
+<div class="card mt-3">
+    <div class="card-body">
+        <h3 style="margin-top:0">Cambiar contraseña</h3>
+        <form asp-action="CambiarPassword" method="post" class="form">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <div class="row full">
+                <label>Nueva contraseña</label>
+                <input type="password" name="nueva" required />
+            </div>
+            <div class="form-actions full">
+                <button class="btn btn-primary" type="submit">Actualizar</button>
+            </div>
+        </form>
+        @if (TempData["Ok"] != null)
+        {
+            <div class="alert" style="background:rgba(22,163,74,.12);color:#065f46;border-color:rgba(22,163,74,.25)">
+                @TempData["Ok"]
+            </div>
+        }
+    </div>
+</div>
