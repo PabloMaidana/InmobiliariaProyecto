@@ -3,6 +3,7 @@ using Inmobiliaria.Web.Models;
 using Inmobiliaria.Web.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 
 namespace Inmobiliaria.Web.Controllers
 {
@@ -43,7 +44,7 @@ namespace Inmobiliaria.Web.Controllers
             var mesesMulta = transcurridos < totalMeses/2.0 ? 2 : 1;
             var multa = mesesMulta * cto.Monto;
             await _repo.TerminarAnticipadoAsync(id, fechaEfectiva, multa, AuthService.UserId(User));
-            TempData["Multa"] = multa;
+            TempData["Multa"] = multa.ToString(CultureInfo.InvariantCulture);
             return RedirectToAction(nameof(Index));
         }
 
