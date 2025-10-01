@@ -31,7 +31,6 @@ D:\Programacion\dotnetProyectos\Inmobiliaria.Web\obj\Debug\net9.0\refint\Inmobil
 D:\Programacion\dotnetProyectos\Inmobiliaria.Web\obj\Debug\net9.0\Inmobiliaria.Web.pdb
 D:\Programacion\dotnetProyectos\Inmobiliaria.Web\obj\Debug\net9.0\Inmobiliaria.Web.genruntimeconfig.cache
 D:\Programacion\dotnetProyectos\Inmobiliaria.Web\obj\Debug\net9.0\ref\Inmobiliaria.Web.dll
-D:\Programacion\dotnetProyectos\Inmobiliaria.Web\obj\Debug\net9.0\compressed\04zwjhlsu1-q5mrrhm7d5.gz
 D:\Programacion\dotnetProyectos\Inmobiliaria.Web1\bin\Debug\net9.0\appsettings.json
 D:\Programacion\dotnetProyectos\Inmobiliaria.Web1\bin\Debug\net9.0\Inmobiliaria.Web.staticwebassets.endpoints.json
 D:\Programacion\dotnetProyectos\Inmobiliaria.Web1\bin\Debug\net9.0\Inmobiliaria.Web.staticwebassets.runtime.json
@@ -67,3 +66,4 @@ D:\Programacion\dotnetProyectos\Inmobiliaria.Web1\obj\Debug\net9.0\Inmobiliaria.
 D:\Programacion\dotnetProyectos\Inmobiliaria.Web1\obj\Debug\net9.0\Inmobiliaria.Web.genruntimeconfig.cache
 D:\Programacion\dotnetProyectos\Inmobiliaria.Web1\obj\Debug\net9.0\ref\Inmobiliaria.Web.dll
 D:\Programacion\dotnetProyectos\Inmobiliaria.Web\obj\Debug\net9.0\Inmobiliaria.Web.sourcelink.json
+D:\Programacion\dotnetProyectos\Inmobiliaria.Web\obj\Debug\net9.0\compressed\04zwjhlsu1-id5ywcy6b1.gz

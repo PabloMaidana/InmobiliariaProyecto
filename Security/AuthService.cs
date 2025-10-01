@@ -13,7 +13,7 @@ namespace Inmobiliaria.Web.Security
 
         public async Task<bool> SignInAsync(HttpContext http, string email, string password)
         {
-            const string sql = "SELECT id,email,password_hash,rol,nombre,apellido FROM usuarios WHERE email=@e AND is_active=1";
+            const string sql = "SELECT id,email,password_hash,rol,nombre,apellido FROM usuarios WHERE email=@e ";
             using var cn = _db.GetConnection(); await cn.OpenAsync();
             using var cmd = new MySqlCommand(sql, cn);
             cmd.Parameters.AddWithValue("@e", email);

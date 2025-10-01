@@ -30,7 +30,7 @@ namespace Inmobiliaria.Web.Data
 
         public async Task<Usuario?> GetAsync(int id)
         {
-            const string sql = "SELECT * FROM usuarios WHERE id=@id";
+            const string sql = "SELECT * FROM usuarios WHERE id=@id ";
             await using var cn = Db.GetConnection(); await cn.OpenAsync();
             await using var cmd = new MySqlCommand(sql, cn);
             cmd.Parameters.AddWithValue("@id", id);
