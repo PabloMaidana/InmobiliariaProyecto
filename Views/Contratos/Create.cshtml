@@ -14,7 +14,15 @@
     </select>
   </div>
   <div><label>Monto</label><input asp-for="Monto" type="number" step="0.01" required/></div>
-  <div><label>Inicio</label><input asp-for="FechaInicio" type="date" required/></div>
-  <div><label>Fin</label><input asp-for="FechaFin" type="date" required/></div>
+  <div>
+  <label>Inicio</label>
+  <input asp-for="FechaInicio" type="date" required
+         value="@(Model is null || Model.FechaInicio == default ? "" : Model.FechaInicio.ToString("yyyy-MM-dd"))" />
+  </div>
+  <div>
+  <label>Fin</label>
+  <input asp-for="FechaFin" type="date" required
+         value="@(Model is null || Model.FechaFin == default ? "" : Model.FechaFin.ToString("yyyy-MM-dd"))" />
+  </div>
   <button type="submit">Guardar</button> <a asp-action="Index">Volver</a>
 </form>
