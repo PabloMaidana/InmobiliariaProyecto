@@ -8,10 +8,14 @@
     <tr>
       <td>@c.Id</td><td>@c.InmuebleId</td><td>@c.InquilinoId</td><td>@c.Monto</td><td>@c.FechaInicio</td><td>@c.FechaFin</td><td>@c.FinalizadoAnticipadoEn</td><td>@c.Multa</td>
       <td>
-        <form asp-action="Terminar" method="post" style="display:inline">
-          <input type="hidden" name="id" value="@c.Id"/><input type="date" name="fechaEfectiva" required/>
-          <button type="submit">Terminar con multa</button>
-        </form>
+         @if (!c.FinalizadoAnticipadoEn.HasValue)  
+        {
+          <form asp-action="Terminar" method="post" style="display:inline">
+            <input type="hidden" name="id" value="@c.Id" />
+            <input type="date" name="fechaEfectiva" required />
+            <button type="submit">Terminar con multa</button>
+          </form>
+        }
       </td>
     </tr>
   }
